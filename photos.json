@@ -5,34 +5,94 @@
   },
   "photos": [
     {
-      "src": "photos/sample-01-braids.jpg",
-      "title": "Braids — sample",
-      "category": "Braids"
+      "src": "photos/manicure-tips__sample-01.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": ""
     },
     {
-      "src": "photos/sample-02-colour.jpg",
-      "title": "Colour — sample",
-      "category": "Colour"
+      "src": "photos/manicure-tips__sample-02.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": ""
     },
     {
-      "src": "photos/sample-03-bridal.jpg",
-      "title": "Bridal — sample",
-      "category": "Bridal"
+      "src": "photos/manicure-tips__sample-03.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": ""
     },
     {
-      "src": "photos/sample-04-styles.jpg",
-      "title": "Styles — sample",
-      "category": "Styles"
+      "src": "photos/manicure-builder-gel__sample-01.jpg",
+      "service": "Manicure",
+      "type": "Builder Gel",
+      "title": ""
     },
     {
-      "src": "photos/sample-05-locs.jpg",
-      "title": "Locs — sample",
-      "category": "Locs"
+      "src": "photos/manicure-builder-gel__sample-02.jpg",
+      "service": "Manicure",
+      "type": "Builder Gel",
+      "title": ""
     },
     {
-      "src": "photos/sample-06-care.jpg",
-      "title": "Care — sample",
-      "category": "Care"
+      "src": "photos/manicure-gumgel__sample-01.jpg",
+      "service": "Manicure",
+      "type": "Gumgel",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-gumgel__sample-02.jpg",
+      "service": "Manicure",
+      "type": "Gumgel",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-acrylics__sample-01.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-acrylics__sample-02.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-acrylics__sample-03.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-stickons__sample-01.jpg",
+      "service": "Manicure",
+      "type": "Stickons",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-stickons__sample-02.jpg",
+      "service": "Manicure",
+      "type": "Stickons",
+      "title": ""
+    },
+    {
+      "src": "photos/pedicure__sample-01.jpg",
+      "service": "Pedicure",
+      "type": "",
+      "title": ""
+    },
+    {
+      "src": "photos/pedicure__sample-02.jpg",
+      "service": "Pedicure",
+      "type": "",
+      "title": ""
+    },
+    {
+      "src": "photos/pedicure__sample-03.jpg",
+      "service": "Pedicure",
+      "type": "",
+      "title": ""
     }
   ]
 }

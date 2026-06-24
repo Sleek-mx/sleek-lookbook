@@ -1,53 +1,60 @@
 #!/usr/bin/env python3
 """
-Build the Sleek Beauty Parlour lookbook.
+Build the Sleek Beauty Parlour nail lookbook.
 
-What it does:
-  1. Optimises every image in  photos/originals/  -> photos/  (resized, web-ready)
-  2. Regenerates  photos.json  (the gallery the website reads)
-     - keeps any titles/categories you already set
-     - new photos appear automatically with a blank title and category "All"
-  3. Pulls booking URL / contact from config.json
+HOW IT WORKS
+------------
+You organise photos by dropping them into category folders inside
+`photos/originals/`.  The folder name decides where each photo shows up:
 
-Usage:
-    python3 build.py
+    photos/originals/
+        manicure-tips/          -> Manicure ▸ Tips
+        manicure-builder-gel/   -> Manicure ▸ Builder Gel
+        manicure-gumgel/        -> Manicure ▸ Gumgel
+        manicure-acrylics/      -> Manicure ▸ Acrylics
+        manicure-stickons/      -> Manicure ▸ Stickons
+        pedicure/               -> Pedicure
 
-Then:  git add -A && git commit -m "update photos" && git push
-(or just run ./publish.sh which does the commit + push for you)
+iPhone HEIC, JPG and PNG all work. Run:
+
+    python3 build.py     (or just ./publish.sh to build + push live)
+
+Captions are optional — edit the "title" of any photo in photos.json and
+re-publish; your captions are kept when you add more photos later.
 """
-import json, os, subprocess, sys
+import json, os, subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC  = os.path.join(HERE, "photos", "originals")   # drop full-size photos here
-OUT  = os.path.join(HERE, "photos")                # optimised versions live here
+SRC  = os.path.join(HERE, "photos", "originals")
+OUT  = os.path.join(HERE, "photos")
 MANIFEST = os.path.join(HERE, "photos.json")
 CONFIG   = os.path.join(HERE, "config.json")
-MAX_EDGE = 1400          # px, long edge — sharp on phones, small in bytes
+MAX_EDGE = 1400
 EXTS = (".jpg", ".jpeg", ".png", ".heic", ".webp")
 
-os.makedirs(SRC, exist_ok=True)
+# folder name -> (service, type)
+FOLDER_MAP = {
+    "manicure-tips":        ("Manicure", "Tips"),
+    "manicure-builder-gel": ("Manicure", "Builder Gel"),
+    "manicure-gumgel":      ("Manicure", "Gumgel"),
+    "manicure-acrylics":    ("Manicure", "Acrylics"),
+    "manicure-stickons":    ("Manicure", "Stickons"),
+    "pedicure":             ("Pedicure", ""),
+}
 
-def optimise():
-    """Resize each original into OUT as a .jpg, skipping ones already done."""
-    made = []
-    for name in sorted(os.listdir(SRC)):
-        if not name.lower().endswith(EXTS) or name.startswith("."):
-            continue
-        stem = os.path.splitext(name)[0]
-        target_name = stem + ".jpg"
-        target = os.path.join(OUT, target_name)
-        src = os.path.join(SRC, name)
-        if os.path.exists(target) and os.path.getmtime(target) >= os.path.getmtime(src):
-            made.append(target_name)
-            continue
-        # sips: resize long edge + convert to jpeg (handles HEIC from iPhone too)
-        subprocess.run(
-            ["sips", "-s", "format", "jpeg", "-Z", str(MAX_EDGE), src, "--out", target],
-            check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-        )
-        made.append(target_name)
-        print(f"  optimised {name} -> photos/{target_name}")
-    return made
+def ensure_folders():
+    for name in FOLDER_MAP:
+        os.makedirs(os.path.join(SRC, name), exist_ok=True)
+
+def optimise(src_path, out_name):
+    target = os.path.join(OUT, out_name)
+    if os.path.exists(target) and os.path.getmtime(target) >= os.path.getmtime(src_path):
+        return
+    subprocess.run(
+        ["sips", "-s", "format", "jpeg", "-Z", str(MAX_EDGE), src_path, "--out", target],
+        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    print(f"  optimised {out_name}")
 
 def load_existing():
     if os.path.exists(MANIFEST):
@@ -58,26 +65,35 @@ def load_existing():
     return {}
 
 def main():
-    print("Optimising photos…")
-    files = optimise()
-    if not files:
-        print("\n⚠  No photos found in  photos/originals/ — drop your images there and run again.")
+    ensure_folders()
     existing = load_existing()
     photos = []
-    for f in files:
-        src = f"photos/{f}"
-        prev = existing.get(src, {})
-        photos.append({
-            "src": src,
-            "title": prev.get("title", ""),
-            "category": prev.get("category", "All"),
-        })
+    total = 0
+    print("Optimising photos…")
+    for folder, (service, ptype) in FOLDER_MAP.items():
+        fdir = os.path.join(SRC, folder)
+        for name in sorted(os.listdir(fdir)):
+            if not name.lower().endswith(EXTS) or name.startswith("."):
+                continue
+            stem = os.path.splitext(name)[0]
+            out_name = f"{folder}__{stem}.jpg"
+            optimise(os.path.join(fdir, name), out_name)
+            src = f"photos/{out_name}"
+            prev = existing.get(src, {})
+            photos.append({
+                "src": src,
+                "service": service,
+                "type": ptype,
+                "title": prev.get("title", ""),
+            })
+            total += 1
+
     config = json.load(open(CONFIG)) if os.path.exists(CONFIG) else {}
     json.dump({"config": config, "photos": photos},
               open(MANIFEST, "w"), indent=2, ensure_ascii=False)
-    print(f"\n✓ photos.json written — {len(photos)} photo(s) in the lookbook.")
-    if photos:
-        print("  Edit titles/categories in photos.json any time, then re-run publish.")
+    print(f"\n✓ photos.json written — {total} photo(s).")
+    if not total:
+        print("⚠  No photos found. Drop images into the folders under photos/originals/ and run again.")
 
 if __name__ == "__main__":
     main()
