@@ -176,7 +176,7 @@
   <header>
     <div class="wrap">
       <img class="logo" src="assets/logo.png?v=2" alt="Sleek Beauty Parlour" />
-      <h1 class="lookbook">The Look Book</h1>
+      <h1 class="lookbook">Our Inspos 💅</h1>
       <div class="lotus">❀</div>
       <p class="tagline">Real nails. Real results. Real you.</p>
     </div>
@@ -267,7 +267,7 @@ function render(){
       `<button class="heart ${FAVS.has(p.src)?'on':''}" aria-label="Save">♥</button>`+
       `<div class="imgwrap"><img loading="lazy" src="${p.src}" alt="${p.title||'Nail look'}"></div>`+
       (p.title?`<div class="cap">${p.title}</div>`:"");
-    card.querySelector('.imgwrap').onclick=()=>openLb(i);
+    card.onclick=()=>openLb(i);
     const h=card.querySelector('.heart');
     h.onclick=e=>{ e.stopPropagation(); toggleFav(p.src); h.classList.toggle('on',FAVS.has(p.src)); h.classList.add('pop'); setTimeout(()=>h.classList.remove('pop'),400); $('favCount').textContent=FAVS.size?`(${FAVS.size})`:""; if(favOnly) render(); };
     board.appendChild(card); io.observe(card);
