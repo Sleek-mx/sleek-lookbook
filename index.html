@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Sleek Beauty Parlour — Lookbook</title>
+<meta name="description" content="Browse our latest styles, colour, braids and bridal work at Sleek Beauty Parlour." />
+<meta name="theme-color" content="#5b2d8e" />
+<!-- Open Graph (nice preview when the link is shared) -->
+<meta property="og:title" content="Sleek Beauty Parlour — Lookbook" />
+<meta property="og:description" content="Browse our latest styles, colour, braids and bridal work." />
+<meta property="og:image" content="assets/logo-white.png" />
+<meta property="og:type" content="website" />
+<style>
+  :root{
+    --purple-deep:#5b2d8e;
+    --purple:#7b4ab8;
+    --orange:#e8714a;
+    --pink:#e05b8a;
+    --blue:#4a90c4;
+    --cream:#fffbee;
+    --paper:#faf7fd;
+    --ink:#3a2f47;
+    --muted:#8a7f97;
+    --line:#ece4f3;
+    --shadow:0 10px 30px rgba(91,45,142,.10);
+    --grad:linear-gradient(90deg,var(--orange),var(--pink),var(--purple),var(--blue));
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(1200px 600px at 50% -200px, #fff 0%, var(--paper) 55%, var(--cream) 100%);
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+  /* Header */
+  header{text-align:center;padding:34px 18px 10px}
+  header img{width:min(260px,62vw);height:auto;display:block;margin:0 auto}
+  .tagline{margin:14px 0 2px;color:var(--muted);font-size:15px;letter-spacing:.3px}
+  .barline{height:4px;width:120px;margin:18px auto 0;border-radius:99px;background:var(--grad)}
+
+  /* Filter pills */
+  .filters{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:26px auto 6px;max-width:760px}
+  .pill{
+    border:1px solid var(--line);background:#fff;color:var(--purple-deep);
+    padding:8px 16px;border-radius:99px;font-size:14px;font-weight:600;cursor:pointer;
+    transition:all .18s ease;white-space:nowrap;
+  }
+  .pill:hover{border-color:var(--purple)}
+  .pill.active{background:var(--purple-deep);color:#fff;border-color:var(--purple-deep);box-shadow:var(--shadow)}
+
+  /* Gallery */
+  .gallery{
+    columns:3 240px;column-gap:14px;margin:22px 0 10px;
+  }
+  .card{
+    break-inside:avoid;margin:0 0 14px;border-radius:16px;overflow:hidden;
+    background:#fff;box-shadow:var(--shadow);cursor:pointer;position:relative;
+    transition:transform .18s ease;
+  }
+  .card:hover{transform:translateY(-3px)}
+  .card img{width:100%;display:block;background:var(--paper)}
+  .card .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:26px 12px 10px;color:#fff;
+    font-size:13px;font-weight:600;
+    background:linear-gradient(to top,rgba(40,20,55,.72),transparent);
+    opacity:0;transition:opacity .2s ease;
+  }
+  .card:hover .cap{opacity:1}
+
+  /* Empty / loading states */
+  .state{text-align:center;color:var(--muted);padding:60px 20px;font-size:16px}
+  .state strong{color:var(--purple-deep)}
+
+  /* Lightbox */
+  .lb{position:fixed;inset:0;background:rgba(30,15,45,.92);display:none;align-items:center;justify-content:center;z-index:50}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:80vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb .cap{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:#fff;font-size:15px;font-weight:600;padding:0 20px}
+  .lb button{
+    position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.14);
+    border:none;color:#fff;font-size:30px;width:52px;height:52px;border-radius:99px;cursor:pointer;
+  }
+  .lb .prev{left:14px}.lb .next{right:14px}
+  .lb .close{top:18px;right:18px;transform:none;width:46px;height:46px;font-size:24px}
+  @media (max-width:600px){.lb .prev,.lb .next{width:44px;height:44px;font-size:24px}}
+
+  /* Footer */
+  footer{text-align:center;padding:30px 18px 50px;color:var(--muted);font-size:14px}
+  .book{
+    display:inline-block;margin:6px 0 18px;padding:13px 30px;border-radius:99px;
+    background:var(--grad);color:#fff;font-weight:700;text-decoration:none;box-shadow:var(--shadow);
+    background-size:200% 100%;transition:background-position .4s ease;
+  }
+  .book:hover{background-position:100% 0}
+  footer .name{color:var(--purple-deep);font-weight:700}
+</style>
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Sleek Beauty Parlour" />
+    <p class="tagline">Our latest work — styles, colour, braids &amp; bridal</p>
+    <div class="barline"></div>
+  </header>
+
+  <div class="wrap">
+    <div class="filters" id="filters"></div>
+    <div class="gallery" id="gallery"></div>
+    <div class="state" id="state">Loading the lookbook…</div>
+  </div>
+
+  <footer>
+    <a class="book" id="bookBtn" href="#">Book your visit</a>
+    <div><span class="name">Sleek Beauty Parlour</span></div>
+    <div id="contactLine"></div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lb" id="lb">
+    <button class="close" id="lbClose" aria-label="Close">×</button>
+    <button class="prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img id="lbImg" alt="" />
+    <button class="next" id="lbNext" aria-label="Next">›</button>
+    <div class="cap" id="lbCap"></div>
+  </div>
+
+<script>
+const state = document.getElementById('state');
+const gallery = document.getElementById('gallery');
+const filtersEl = document.getElementById('filters');
+let photos = [];
+let current = [];   // filtered list currently shown
+let lbIndex = 0;
+
+fetch('photos.json?v=' + Date.now())
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(data => {
+    photos = (data.photos || []).filter(p => p.src);
+    // contact / booking from config
+    const cfg = data.config || {};
+    if (cfg.bookingUrl) document.getElementById('bookBtn').href = cfg.bookingUrl;
+    else document.getElementById('bookBtn').style.display = 'none';
+    if (cfg.contact) document.getElementById('contactLine').textContent = cfg.contact;
+    render();
+  })
+  .catch(() => { state.textContent = 'Lookbook is being set up. Check back soon 💜'; });
+
+function render(){
+  if (!photos.length){
+    state.innerHTML = '<strong>Coming soon</strong><br>Our latest styles will appear here shortly 💜';
+    return;
+  }
+  state.style.display = 'none';
+  buildFilters();
+  show('All');
+}
+
+function buildFilters(){
+  const cats = ['All', ...Array.from(new Set(photos.map(p => p.category).filter(Boolean)))];
+  filtersEl.innerHTML = '';
+  cats.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'pill' + (i === 0 ? ' active' : '');
+    b.textContent = c;
+    b.onclick = () => { document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active')); b.classList.add('active'); show(c); };
+    filtersEl.appendChild(b);
+  });
+  if (cats.length <= 1) filtersEl.style.display = 'none';
+}
+
+function show(cat){
+  current = (cat === 'All') ? photos : photos.filter(p => p.category === cat);
+  gallery.innerHTML = '';
+  current.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `<img loading="lazy" src="${p.src}" alt="${p.title||''}">` +
+                     (p.title ? `<div class="cap">${p.title}</div>` : '');
+    card.onclick = () => openLb(i);
+    gallery.appendChild(card);
+  });
+}
+
+/* Lightbox */
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+function openLb(i){ lbIndex = i; paintLb(); lb.classList.add('open'); }
+function paintLb(){ const p = current[lbIndex]; lbImg.src = p.src; lbCap.textContent = p.title || ''; }
+function move(d){ lbIndex = (lbIndex + d + current.length) % current.length; paintLb(); }
+document.getElementById('lbClose').onclick = () => lb.classList.remove('open');
+document.getElementById('lbPrev').onclick = () => move(-1);
+document.getElementById('lbNext').onclick = () => move(1);
+lb.onclick = e => { if (e.target === lb) lb.classList.remove('open'); };
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') lb.classList.remove('open');
+  if (e.key === 'ArrowLeft') move(-1);
+  if (e.key === 'ArrowRight') move(1);
+});
+// swipe on touch
+let tx = 0;
+lb.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) move(dx < 0 ? 1 : -1); });
+</script>
+</body>
+</html>

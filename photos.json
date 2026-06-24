@@ -1,0 +1,38 @@
+{
+  "config": {
+    "bookingUrl": "",
+    "contact": "Sleek Beauty Parlour"
+  },
+  "photos": [
+    {
+      "src": "photos/sample-01-braids.jpg",
+      "title": "Braids — sample",
+      "category": "Braids"
+    },
+    {
+      "src": "photos/sample-02-colour.jpg",
+      "title": "Colour — sample",
+      "category": "Colour"
+    },
+    {
+      "src": "photos/sample-03-bridal.jpg",
+      "title": "Bridal — sample",
+      "category": "Bridal"
+    },
+    {
+      "src": "photos/sample-04-styles.jpg",
+      "title": "Styles — sample",
+      "category": "Styles"
+    },
+    {
+      "src": "photos/sample-05-locs.jpg",
+      "title": "Locs — sample",
+      "category": "Locs"
+    },
+    {
+      "src": "photos/sample-06-care.jpg",
+      "title": "Care — sample",
+      "category": "Care"
+    }
+  ]
+}
