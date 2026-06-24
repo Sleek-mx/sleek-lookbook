@@ -5,94 +5,196 @@
   },
   "photos": [
     {
-      "src": "photos/manicure-tips__sample-01.jpg",
+      "src": "photos/manicure-tips__look-01.jpg",
       "service": "Manicure",
       "type": "Tips",
-      "title": ""
+      "title": "Classic French tips"
     },
     {
-      "src": "photos/manicure-tips__sample-02.jpg",
+      "src": "photos/manicure-tips__look-02.jpg",
       "service": "Manicure",
       "type": "Tips",
-      "title": ""
+      "title": "Gold-tipped French"
     },
     {
-      "src": "photos/manicure-tips__sample-03.jpg",
+      "src": "photos/manicure-tips__look-03.jpg",
       "service": "Manicure",
       "type": "Tips",
-      "title": ""
+      "title": "Gold line art"
     },
     {
-      "src": "photos/manicure-builder-gel__sample-01.jpg",
+      "src": "photos/manicure-tips__look-04.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": "Gold accent tips"
+    },
+    {
+      "src": "photos/manicure-tips__look-05.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": "Crisp white French"
+    },
+    {
+      "src": "photos/manicure-tips__look-06.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": "Sunset ombré tips"
+    },
+    {
+      "src": "photos/manicure-tips__look-07.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": "Blue ombré tips"
+    },
+    {
+      "src": "photos/manicure-builder-gel__look-01.jpg",
       "service": "Manicure",
       "type": "Builder Gel",
-      "title": ""
+      "title": "Glossy natural overlay"
     },
     {
-      "src": "photos/manicure-builder-gel__sample-02.jpg",
+      "src": "photos/manicure-builder-gel__look-02.jpg",
       "service": "Manicure",
       "type": "Builder Gel",
-      "title": ""
+      "title": "Clean nude builder gel"
     },
     {
-      "src": "photos/manicure-gumgel__sample-01.jpg",
+      "src": "photos/manicure-builder-gel__look-03.jpg",
+      "service": "Manicure",
+      "type": "Builder Gel",
+      "title": "Nude almond, high shine"
+    },
+    {
+      "src": "photos/manicure-builder-gel__look-04.jpg",
+      "service": "Manicure",
+      "type": "Builder Gel",
+      "title": "Natural set, fine art"
+    },
+    {
+      "src": "photos/manicure-builder-gel__look-05.jpg",
+      "service": "Manicure",
+      "type": "Builder Gel",
+      "title": "Elegant dark gloss"
+    },
+    {
+      "src": "photos/manicure-gumgel__look-01.jpg",
       "service": "Manicure",
       "type": "Gumgel",
-      "title": ""
+      "title": "Bright pink gel"
     },
     {
-      "src": "photos/manicure-gumgel__sample-02.jpg",
+      "src": "photos/manicure-gumgel__look-02.jpg",
       "service": "Manicure",
       "type": "Gumgel",
-      "title": ""
+      "title": "Glossy purple almond"
     },
     {
-      "src": "photos/manicure-acrylics__sample-01.jpg",
+      "src": "photos/manicure-gumgel__look-03.jpg",
+      "service": "Manicure",
+      "type": "Gumgel",
+      "title": "Classic red gloss"
+    },
+    {
+      "src": "photos/manicure-gumgel__look-04.jpg",
+      "service": "Manicure",
+      "type": "Gumgel",
+      "title": "Vivid red set"
+    },
+    {
+      "src": "photos/manicure-gumgel__look-05.jpg",
+      "service": "Manicure",
+      "type": "Gumgel",
+      "title": "Bold red, glossy"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-01.jpg",
       "service": "Manicure",
       "type": "Acrylics",
-      "title": ""
+      "title": "Pink ombré, long coffin"
     },
     {
-      "src": "photos/manicure-acrylics__sample-02.jpg",
+      "src": "photos/manicure-acrylics__look-02.jpg",
       "service": "Manicure",
       "type": "Acrylics",
-      "title": ""
+      "title": "Magenta ombré set"
     },
     {
-      "src": "photos/manicure-acrylics__sample-03.jpg",
+      "src": "photos/manicure-acrylics__look-03.jpg",
       "service": "Manicure",
       "type": "Acrylics",
-      "title": ""
+      "title": "Black & flame stiletto"
     },
     {
-      "src": "photos/manicure-stickons__sample-01.jpg",
+      "src": "photos/manicure-acrylics__look-04.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Jet-black stiletto"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-05.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Hot pink, extra long"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-06.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Pink ombré glam"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-07.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Hot pink coffin"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-08.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Soft nude, long almond"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-09.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Blush pink, long set"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-10.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": "Nude pink, long"
+    },
+    {
+      "src": "photos/manicure-stickons__look-01.jpg",
       "service": "Manicure",
       "type": "Stickons",
-      "title": ""
+      "title": "Floral stick-on art"
     },
     {
-      "src": "photos/manicure-stickons__sample-02.jpg",
+      "src": "photos/manicure-stickons__look-02.jpg",
       "service": "Manicure",
       "type": "Stickons",
-      "title": ""
+      "title": "Blue blossom stickons"
     },
     {
-      "src": "photos/pedicure__sample-01.jpg",
-      "service": "Pedicure",
-      "type": "",
-      "title": ""
+      "src": "photos/manicure-stickons__look-03.jpg",
+      "service": "Manicure",
+      "type": "Stickons",
+      "title": "Red floral accents"
     },
     {
-      "src": "photos/pedicure__sample-02.jpg",
-      "service": "Pedicure",
-      "type": "",
-      "title": ""
+      "src": "photos/manicure-stickons__look-04.jpg",
+      "service": "Manicure",
+      "type": "Stickons",
+      "title": "Purple mix with charms"
     },
     {
-      "src": "photos/pedicure__sample-03.jpg",
-      "service": "Pedicure",
-      "type": "",
-      "title": ""
+      "src": "photos/manicure-stickons__look-05.jpg",
+      "service": "Manicure",
+      "type": "Stickons",
+      "title": "Glitter & charm art"
     }
   ]
 }
