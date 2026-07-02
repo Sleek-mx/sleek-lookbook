@@ -4,3 +4,4 @@ node_modules/
 *.tmp
 curation/
 photos/originals/_inbox/
+.claude/
