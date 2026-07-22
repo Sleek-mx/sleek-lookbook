@@ -18,6 +18,13 @@ Run:  python3 build.py     (or ./publish.sh to build + push live)
 import json, os
 from PIL import Image, ImageOps, ImageFilter, ImageEnhance
 
+# iPhone photos are usually HEIC (often with a .jpg name) — teach Pillow to open them
+try:
+    import pillow_heif
+    pillow_heif.register_heif_opener()
+except ImportError:
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC  = os.path.join(HERE, "photos", "originals")
 OUT  = os.path.join(HERE, "photos")

@@ -1,7 +1,4 @@
+.venv/
 .DS_Store
-node_modules/
-.playwright-mcp/
-*.tmp
 curation/
 photos/originals/_inbox/
-.claude/

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sleek-mx.github.io/sleek-lookbook/sitemap.xml
