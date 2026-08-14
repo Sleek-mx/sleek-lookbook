@@ -179,10 +179,22 @@
       "title": "Hot pink coffin"
     },
     {
+      "src": "photos/manicure-tips__look-08.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": ""
+    },
+    {
       "src": "photos/manicure-acrylics__look-08.jpg",
       "service": "Manicure",
       "type": "Acrylics",
       "title": "Soft nude, long almond"
+    },
+    {
+      "src": "photos/manicure-tips__look-09.jpg",
+      "service": "Manicure",
+      "type": "Tips",
+      "title": ""
     },
     {
       "src": "photos/manicure-acrylics__look-09.jpg",
@@ -195,6 +207,24 @@
       "service": "Manicure",
       "type": "Acrylics",
       "title": "Nude pink, long"
+    },
+    {
+      "src": "photos/manicure-acrylics__look-11.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-acrylics__look-12.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
+    },
+    {
+      "src": "photos/manicure-acrylics__look-13.jpg",
+      "service": "Manicure",
+      "type": "Acrylics",
+      "title": ""
     }
   ]
 }
